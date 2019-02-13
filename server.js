@@ -3,7 +3,7 @@ const express=require('express');
 const hbs=require('hbs');
 const fs=require('fs');
 
-const port= process.env.PORT|| 3000;
+const port= process.env.PORT || 3000;
 
 var app= express();
 
@@ -48,8 +48,8 @@ hbs.registerHelper('screamIt',(text)=>{
 app.get('/',(req,res)=>{
 
 	res.render('home.hbs',{
-		pageTitle:'Home Page',
-		welcomeEntry:'Good Morning Vietname',
+		pageTitle:'Home',
+		welcomeEntry:'Good Morning Vietname'
 		//currentYear:new Date().getFullYear()	
 	});
 
@@ -67,8 +67,15 @@ app.get('/',(req,res)=>{
 app.get('/about',(req,res)=>{
 	// res.send('<h1>Hello express!</h1>')
 	res.render('about.hbs',{
-		pageTitle:'About Page',
+		pageTitle:'About'
 		//currentYear:new Date().getFullYear()
+	});	
+});
+
+app.get('/project',(req,res)=>{
+	res.render('project.hbs',{
+		pageTitle:'Projects',
+		welcomeEntry:'All the projects listed bellow:'
 	});	
 });
 
